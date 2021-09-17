@@ -9,8 +9,11 @@ namespace Task_4
             int a;
             int b;
             int c;
+            Console.WriteLine("Введите значение первого кабинета:");
             bool f1 = int.TryParse(Console.ReadLine(), out a);
+            Console.WriteLine("Введите значение второго кабинета:");
             bool f2 = int.TryParse(Console.ReadLine(), out b);
+            Console.WriteLine("Введите значение третьего кабинета:");
             bool f3 = int.TryParse(Console.ReadLine(), out c);
             if ((f1) && (f2) && (f3) && (a > 99) && (a < 1000) && (b > 99) && (b < 1000) && (c > 99) && (c < 1000))
             {
