@@ -44,5 +44,5 @@ namespace Task_2
                 Console.WriteLine("Incorrect input");
             }
         }
-    }
+    } 
 }
