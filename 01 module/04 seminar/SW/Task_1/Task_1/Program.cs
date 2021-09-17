@@ -1,5 +1,4 @@
 ﻿using System;
-
 namespace Task_1
 {
     class Program
@@ -11,22 +10,22 @@ namespace Task_1
             double c = 1;
             do
             {
-                a = b;
-                a+= 1 / (c * (c + 1) * (c + 2));
-                c+=1;
-            } while (a != b);
-                Console.WriteLine(a);
-
-            float d= 0;
-            float e= 0;
-            float f= 1;
+                b = a;
+                a += 1 / (c * (c + 1) * (c + 2));
+                c += 1;
+            } while (a > b);
+            Console.WriteLine(a);
+            float d = 0;
+            float e = 0;
+            float f = 1;
             do
             {
-                d = e;
+                e = d;
                 d += 1 / (f * (f + 1) * (f + 2));
-                f+=1;
-            } while (d != e);
+                f += 1;
+            } while (d > e);
             Console.WriteLine(d);
         }
     }
 }
+
