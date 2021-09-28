@@ -47,4 +47,4 @@ namespace Task_1
             Console.WriteLine(5050 - sum);
         }
     }
-}
+} 
