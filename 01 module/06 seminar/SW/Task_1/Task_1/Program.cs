@@ -8,8 +8,7 @@ namespace Task_1
         {
             for (int i = 0; i < a.Length; ++i)
             {
-                Console.Write(a[i]);
-                Console.Write(' ');
+                Console.Write(a[i] + " ");
             }
             Console.WriteLine();
         }
