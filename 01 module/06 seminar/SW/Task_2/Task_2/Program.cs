@@ -26,7 +26,8 @@ namespace Task_1
                 a[i] = i+1;
             }
             Cout(a);
-            for (int i = 0; i < 45; i++)
+            Console.WriteLine();
+            for (int i = 0; i < 50; i++)
             {
                 Random rnd = new Random();
                 int i1 = rnd.Next(0, 100);
@@ -34,8 +35,10 @@ namespace Task_1
                 swap(ref a[i1], ref a[i2]);
             }
             Cout(a);
+            Console.WriteLine();
             Array.Resize(ref a, a.Length-1);
             Cout(a);
+            Console.WriteLine();
             int sum = 0;
             for (int i = 0; i < a.Length; i++)
             {
