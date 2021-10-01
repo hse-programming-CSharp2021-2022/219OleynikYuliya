@@ -4,30 +4,23 @@ namespace Task_1
 {
     class Program
     {
-        static void Cout(char[] a)
-        {
-            for (int i = 0; i < a.Length; ++i)
-            {
-                Console.Write(a[i] + " ");
-            }
-            Console.WriteLine();
-        }
         static void Main(string[] args)
         {
-            int k = int.Parse(Console.ReadLine());
-            char[] a = new char[k];
-            char[] copy = new char[k];
-            for (int i = 0; i < a.Length; i++)
+            int l = 0;
+            int n = int.Parse(Console.ReadLine());
+            for (int i = 9; i >= 0; i--)
             {
-                Random rnd = new Random();
-                a[i] = (char)rnd.Next('A', 'Z' + 1);
+                int num = n;
+                while (num > 0)
+                {
+                    if ((num % 10) == i)
+                    {
+                        l = l * 10 + i;
+                    }
+                    num /= 10;
+                }
             }
-            Cout(a);
-            Array.Copy(a, copy, k);
-            Array.Sort(a);
-            Cout(a);
-            Array.Reverse(a);
-            Cout(a);
+            Console.WriteLine(l); ;
         }
     }
 }
