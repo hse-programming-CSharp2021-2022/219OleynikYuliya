@@ -20,7 +20,7 @@ namespace Task_1
         public static int Size(int t)
         {
             int sum = 0;
-            while (t>0)
+            while (t > 0)
             {
                 sum += t % 10;
                 t /= 10;
@@ -30,7 +30,7 @@ namespace Task_1
 
         static void Main(string[] args)
         {
-             int n = int.Parse(Console.ReadLine());
+            int n = int.Parse(Console.ReadLine());
             int[] mas = new int[n];
             Random rnd = new Random();
             for (int i= 0; i < n; i++)
@@ -74,13 +74,12 @@ namespace Task_1
                             select t; 
 
             foreach (var t in selected3)
-                Console.WriteLine(t + " ");
+                Console.WriteLine(t + " "); 
 
             string s = Console.ReadLine();
             Regex regex = new Regex(@"\w{4}");
-            Console.WriteLine(regex.Match(s));
-
-            
+            foreach (var i in regex.Matches(s))
+                Console.WriteLine(i);
         }
     }
 }
