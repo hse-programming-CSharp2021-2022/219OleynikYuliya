@@ -15,12 +15,12 @@ namespace Task_1
             Console.WriteLine();
         }
 
-        static int countEven(int[] arr)
+        static int CountEven(int[] arr)
         {
             return arr.Where(x => x % 2 == 0).Count();
         }
 
-        static int countOdd(int[] arr)
+        static int CountOdd(int[] arr)
         {
             return arr.Where(x => x % 2 != 0).Count();
         }
