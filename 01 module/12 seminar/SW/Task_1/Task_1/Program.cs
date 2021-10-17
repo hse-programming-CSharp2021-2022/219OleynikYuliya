@@ -79,7 +79,7 @@ namespace Task_1
             string s = Console.ReadLine();
             Regex regex = new Regex(@"\w{4}");
             foreach (var i in regex.Matches(s))
-                Console.WriteLine(i);
+                Console.WriteLine(i); 
         }
     }
 }
