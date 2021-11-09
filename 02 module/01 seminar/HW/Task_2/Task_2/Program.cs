@@ -22,11 +22,6 @@ namespace Task_2
                 }
             }
 
-            public double Square()
-            {
-                return 0.5 * Perimetr * (radius / (Math.Cos(Math.PI / numb)));
-            }
-
             public double Area
             {
                 get
