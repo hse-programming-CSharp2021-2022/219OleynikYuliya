@@ -61,9 +61,8 @@ namespace Task05
             {
                 int n = int.Parse(Console.ReadLine());
                 for (int i = 0; i < n; i++)
-                {
-                    // Изменил на n*2.18 ширину чтоб +- квадратненько выводило (мерял линейкой на n = 20, так что погрешность большая)
-                    for (int j = 0; j < n * 2.18; j++)
+
+                    for (int j = 0; j < n * 2; j++)
                     {
                         if ((i + j) % 2 == 0)
                         {
