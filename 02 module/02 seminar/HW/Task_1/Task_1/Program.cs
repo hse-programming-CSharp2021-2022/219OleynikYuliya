@@ -1,54 +1,88 @@
 ﻿using System;
 
-namespace Task_1
+namespace Task05
 {
-
-    class VideoFile
+    class ConsolePlate
     {
-        private string _name;
-        private int _duration;
-        private int _quality;
 
-        public VideoFile(string name, int duration, int quality)
+        private char _plateChar;
+        private ConsoleColor _plateColor = ConsoleColor.White;
+        private ConsoleColor _backgroundColor = ConsoleColor.Black;
+
+        public char PlateChar
         {
-            _name = name;
-            _duration = duration;
-            _quality = quality;
+            get
+            {
+                return _plateChar;
+            }
+            set
+            {
+                _plateChar = value >= 'A' && value <= 'Z' ? value : 'A';
+            }
+        }
+        public ConsoleColor PlateColor
+        {
+            get
+            {
+                return _plateColor;
+            }
+            set 
+            { 
+                _plateColor = value != _backgroundColor ? value : _plateColor; 
+            }
+        }
+        public ConsoleColor PlateBackgroundColor
+        {
+            get => _backgroundColor;
+            set { _backgroundColor = value != _plateColor ? value : _backgroundColor; }
         }
 
-        public int Size()
+        public ConsolePlate()
         {
-            return _duration * _quality;
+            _plateChar = '+';
         }
-        public string GetInfo()
+
+        public ConsolePlate(char plateChar, ConsoleColor plateColor, ConsoleColor backgroundColor)
         {
-            return $"Наименование видеофайла    : {_name}\nРазмер видеофайла: {Size()}\nКачество видеофайла: {_quality}\nДлительность в секундах: {_duration}\n";
+            PlateChar = plateChar;
+            PlateColor = plateColor;
+            PlateBackgroundColor = backgroundColor;
         }
+
     }
+
     class Program
     {
         static void Main(string[] args)
         {
-            do
+            ConsolePlate xcp = new ConsolePlate('X', ConsoleColor.White, ConsoleColor.Red);
+            ConsolePlate ocp = new ConsolePlate('O', ConsoleColor.White, ConsoleColor.Magenta);
+            while (true)
             {
-                var rnd = new Random();
-                var videoFile = new VideoFile("VideoFile", rnd.Next(60, 361), rnd.Next(100, 1001));
-                var array = new VideoFile[rnd.Next(5, 16)];
-                for (int i = 0; i < array.Length; i++)
+                int n = int.Parse(Console.ReadLine());
+                for (int i = 0; i < n; i++)
                 {
-                    string name = "";
-                    int duration = rnd.Next(60, 361);
-                    int quality = rnd.Next(100, 1001);
-                    for (int j = 1; j < rnd.Next(2, 10); j++) 
-                        name += (char)rnd.Next('a', 'z');
-                    array[i] = new VideoFile(name, duration, quality);
+                    // Изменил на n*2.18 ширину чтоб +- квадратненько выводило (мерял линейкой на n = 20, так что погрешность большая)
+                    for (int j = 0; j < n * 2.18; j++)
+                    {
+                        if ((i + j) % 2 == 0)
+                        {
+                            Console.ForegroundColor = xcp.PlateColor;
+                            Console.BackgroundColor = xcp.PlateBackgroundColor;
+                            Console.Write(xcp.PlateChar);
+                        }
+                        else
+                        {
+                            Console.ForegroundColor = ocp.PlateColor;
+                            Console.BackgroundColor = ocp.PlateBackgroundColor;
+                            Console.Write(ocp.PlateChar);
+                        }
+                    }
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.BackgroundColor = ConsoleColor.Black;
+                    Console.WriteLine();
                 }
-                for (int i = 0; i < array.Length; i++)
-                    if (array[i].Size() > videoFile.Size())
-                        Console.WriteLine($"Размер этого видеофайла больше,\nчем размер отдельного видеофайла:\n{array[i].GetInfo()}");
-                Console.WriteLine("Введите q, чтобы выйти.");
-            } while (Console.ReadLine() != "q");
-
+            }
         }
     }
 }
