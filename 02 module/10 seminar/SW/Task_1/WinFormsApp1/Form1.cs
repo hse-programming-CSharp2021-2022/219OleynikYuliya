@@ -25,5 +25,10 @@ namespace WinFormsApp1
             textBox1.Lines = lines;
             buttonShow.Visible = true;
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
